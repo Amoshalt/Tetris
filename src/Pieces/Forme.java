@@ -1,3 +1,5 @@
+package Pieces;
+
 /**
  * Created by Martial TARDY on 11/02/2017.
  */

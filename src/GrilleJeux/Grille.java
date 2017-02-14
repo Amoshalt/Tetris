@@ -1,4 +1,7 @@
-import java.lang.reflect.Array;
+package GrilleJeux;
+
+import GrilleJeux.Case;
+
 import java.util.ArrayList;
 
 /**
