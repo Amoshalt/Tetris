@@ -10,6 +10,7 @@ public class C extends Piece {
      * Classe de la piece cubique
      */
 
+
     public C() {
         super();
         Case[] c = new Case[4];
