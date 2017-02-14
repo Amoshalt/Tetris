@@ -4,29 +4,25 @@ package GrilleJeux;
  * Created by Martial TARDY on 11/02/2017.
  */
 public class Case {
-    public enum Couleur {
-        BLEU,
-        ROUGE,
-        VERT,
-        ORANGE,
-        VIDE
-    }
 
-    private Couleur valeur;
+    /**
+     *
+     */
+    private boolean vide;
     private int x, y;
 
-    public Case(Couleur valeur, int x, int y) {
-        this.valeur = valeur;
+    public Case(boolean vide, int x, int y) {
+        this.vide = vide;
         this.x = x;
         this.y = y;
     }
 
-    public Couleur getValeur() {
-        return valeur;
+    public boolean isVide() {
+        return vide;
     }
 
-    public void setValeur(Couleur valeur) {
-        this.valeur = valeur;
+    public void setVide(boolean vide) {
+        this.vide = vide;
     }
 
     public int getX() {
