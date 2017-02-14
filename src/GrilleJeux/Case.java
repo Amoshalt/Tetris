@@ -8,7 +8,7 @@ public class Case {
     /**
      * Classe de la case.
      */
-    
+
     private boolean vide;
     private int x, y;
 

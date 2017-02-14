@@ -12,13 +12,6 @@ public class Grille {
 
     public Grille() {
         this.grille = new Case[10][10];
-        for (int i = 0; i < grille.length; i++)
-        {
-            for (int j = 0; j < grille[i].length; j++)
-            {
-                this.grille[i][j] = new Case(Case.Couleur.VIDE,i,j);
-            }
-        }
     }
 
     public Case[][] getGrille() {
@@ -45,10 +38,10 @@ public class Grille {
             forme= true;
             while ((j<g[i].length) && forme)
             {
-                if (g[i][j].getValeur()== Case.Couleur.VIDE)
+                /*if (g[i][j].getValeur()== Case.Couleur.VIDE)
                 {
                     forme = false;
-                }
+                }*/
                 j++;
             }
             if (forme)
