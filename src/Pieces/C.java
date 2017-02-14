@@ -7,6 +7,6 @@ public class C extends Piece {
     /**
      * Classe de la piece cubique
      */
-    
+
 
 }
