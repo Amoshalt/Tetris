@@ -6,11 +6,11 @@ import GrilleJeux.Grille;
 public class Tetris {
     public static void main(String[] args) {
         Grille grid = new Grille();
-
+/*
         affichageConsole(grid);
-
+*/
     }
-
+/*
     public static void affichageConsole (Grille grille)
     {
         String caract = " ";
@@ -36,4 +36,5 @@ public class Tetris {
             System.out.println();
         }
     }
+    */
 }
