@@ -1,4 +1,4 @@
-package Pieces;
+package Tetriminos;
 
 import GrilleJeux.Case;
 

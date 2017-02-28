@@ -8,9 +8,9 @@ public class Tetris {
         Grille grid = new Grille();
 /*
         affichageConsole(grid);
-
+*/
     }
-
+/*
     public static void affichageConsole (Grille grille)
     {
         String caract = " ";
@@ -37,4 +37,5 @@ public class Tetris {
         }
         */
     }
+    */
 }

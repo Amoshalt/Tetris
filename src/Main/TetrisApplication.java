@@ -9,14 +9,17 @@ import javafx.stage.Stage;
  */
 public class TetrisApplication extends Application {
 
-    FenetrePrincipale fenetrePrincipale = new FenetrePrincipale();
-
     public static void main(String[] args) {
 
     }
 
     @Override
-    public void start(Stage fenetrePrincipale) throws Exception {
+    public void start(Stage stage) throws Exception {
+
+        stage.setTitle("TETRIS");
+        stage.setHeight(1000);
+        stage.setWidth(500);
+        stage.show();
 
     }
 }
