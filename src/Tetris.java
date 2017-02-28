@@ -6,7 +6,7 @@ import GrilleJeux.Grille;
 public class Tetris {
     public static void main(String[] args) {
         Grille grid = new Grille();
-
+/*
         affichageConsole(grid);
 
     }
@@ -35,5 +35,6 @@ public class Tetris {
             }
             System.out.println();
         }
+        */
     }
 }
