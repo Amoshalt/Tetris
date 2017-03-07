@@ -38,10 +38,7 @@ public class Grille {
             forme= true;
             while ((j<g[i].length) && forme)
             {
-                /*if (g[i][j].getValeur()== Case.Couleur.VIDE)
-                {
-                    forme = false;
-                }*/
+                
                 j++;
             }
             if (forme)

@@ -10,20 +10,35 @@ public class I extends Piece {
      * Classe de la piece ressemblant à une barre
      */
 
-    public I() {
+    public I(sensPiece sens) {
         super();
         Case[] c = new Case[4];
-        c[0].setX(0);
-        c[0].setY(0);
-
-        c[1].setX(1);
-        c[1].setY(0);
-
-        c[2].setX(2);
-        c[2].setY(0);
-
-        c[3].setX(3);
-        c[3].setY(0);
+        int[][] tab = {{0,0}, {0,1}, {0,2}, {0,3},
+                {0,0}, {1,0}, {2,0}, {3,0},
+        };
+        for( int i =0; i< 3; i++)
+        {
+            switch (sens)
+            {
+                case BAS:
+                    c[i].setY(tab[i+4][1]);
+                    c[i].setX(tab[i+4][0]);
+                    break;
+                case HAUT:
+                    c[i].setY(tab[i+4][1]);
+                    c[i].setX(tab[i+4][0]);
+                    break;
+                case DROITE:
+                    c[i].setY(tab[i][1]);
+                    c[i].setX(tab[i][0]);
+                    break;
+                case GAUCHE:
+                    c[i].setY(tab[i][1]);
+                    c[i].setX(tab[i][0]);
+                    break;
+                default:
+            }
+        }
 
         this.setCases(c);
     }

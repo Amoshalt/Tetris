@@ -11,20 +11,16 @@ public class C extends Piece {
      */
 
 
-    public C() {
+    public C(sensPiece sens) {
         super();
         Case[] c = new Case[4];
-        c[0].setX(0);
-        c[0].setY(0);
+        int[][] tab = {{0,0}, {0,1}, {1,1}, {1,0}};
 
-        c[1].setX(0);
-        c[1].setY(1);
-
-        c[2].setX(1);
-        c[2].setY(0);
-
-        c[3].setX(1);
-        c[3].setY(1);
+        for (int i = 0; i <3 ; i++)
+        {
+            c[i].setY(tab[i][1]);
+            c[i].setX(tab[i][0]);
+        }
 
         this.setCases(c);
     }
