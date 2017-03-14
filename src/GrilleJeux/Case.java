@@ -25,11 +25,11 @@ public class Case {
     private Couleur couleur;
 
 
-    public Case(boolean vide, int x, int y, Couleur coul) {
+    public Case(boolean vide, int x, int y) {
         this.vide = vide;
         this.x = x;
         this.y = y;
-        this.couleur = coul;
+        this.couleur = Couleur.GRIS;
     }
 
     public boolean isVide() {
