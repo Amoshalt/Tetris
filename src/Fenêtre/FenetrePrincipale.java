@@ -57,7 +57,7 @@ public class FenetrePrincipale extends Stage {
         }
 
         gridPane.setGridLinesVisible(true);
-        gridPane.setAlignment(Pos.CENTER_LEFT);
+        gridPane.setAlignment(Pos.CENTER);
 
         scene = new Scene(gridPane,graphicWidth,graphicHeigh, Color.GRAY);
 
