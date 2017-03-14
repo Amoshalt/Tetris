@@ -18,6 +18,7 @@ public class Si extends Piece {
         };
         for( int i =0; i< 3; i++)
         {
+            c[i].setCouleur(Case.Couleur.ORANGE);
             switch (sens)
             {
                 case BAS:

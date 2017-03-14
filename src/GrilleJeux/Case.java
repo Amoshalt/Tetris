@@ -8,14 +8,28 @@ public class Case {
     /**
      * Classe de la case.
      */
+    public enum Couleur
+    {
+        ROUGE,
+        BLEU,
+        VERT,
+        CYAN,
+        VIOLET,
+        ORANGE,
+        JAUNE,
+        GRIS
+    }
 
     private boolean vide;
     private int x, y;
+    private Couleur couleur;
 
-    public Case(boolean vide, int x, int y) {
+
+    public Case(boolean vide, int x, int y, Couleur coul) {
         this.vide = vide;
         this.x = x;
         this.y = y;
+        this.couleur = coul;
     }
 
     public boolean isVide() {
@@ -42,4 +56,11 @@ public class Case {
         this.y = y;
     }
 
+    public Couleur getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(Couleur couleur) {
+        this.couleur = couleur;
+    }
 }

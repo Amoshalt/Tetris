@@ -18,6 +18,7 @@ public class I extends Piece {
         };
         for( int i =0; i< 3; i++)
         {
+            c[i].setCouleur(Case.Couleur.VIOLET);
             switch (sens)
             {
                 case BAS:

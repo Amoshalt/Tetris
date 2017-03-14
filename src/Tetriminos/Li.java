@@ -19,6 +19,7 @@ public class Li extends Piece {
         };
         for( int i =0; i< 3; i++)
         {
+            c[i].setCouleur(Case.Couleur.CYAN);
             switch (sens)
             {
                 case BAS:

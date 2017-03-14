@@ -18,6 +18,7 @@ public class C extends Piece {
 
         for (int i = 0; i <3 ; i++)
         {
+            c[i].setCouleur(Case.Couleur.ROUGE);
             c[i].setY(tab[i][1]);
             c[i].setX(tab[i][0]);
         }

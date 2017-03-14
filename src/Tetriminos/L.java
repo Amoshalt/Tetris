@@ -20,6 +20,7 @@ public class L extends Piece {
                         };
         for( int i =0; i< 3; i++)
         {
+            c[i].setCouleur(Case.Couleur.BLEU);
             switch (sens)
             {
                 case BAS:
