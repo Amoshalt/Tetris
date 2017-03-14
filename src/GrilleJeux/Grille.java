@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Grille {
     private Case[][] grille;
 
-    public Grille() {
-        this.grille = new Case[10][10];
+    public Grille(int x, int y) {
+        this.grille = new Case[x][y];
         for (int i = 0 ; i< this.grille.length;i++)
         {
             for (int j = 0 ; j< this.grille[i].length;j++)
@@ -73,7 +73,7 @@ public class Grille {
         if (ligneASupp.size() >= 1)
         {
             numLigne = (int) ligneASupp.get(numArray);
-            //nbLigne = 9 - numLigne;
+
             for (int i = g.length - 1; i >= 0; i--)
             {
                 System.out.println("i: " + i +" nbLigne: " + nbLigne + " numLigne: " + numLigne + " numArray: " + numArray);

@@ -10,7 +10,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        Grille g = new Grille();
+        Grille g = new Grille(10,10);
 
         g.affichageGrilleConsole();
         for (int j = 0; j < g.getGrille()[1].length; j++)
