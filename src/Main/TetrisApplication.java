@@ -42,6 +42,7 @@ public class TetrisApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        /*
 
         Group root = new Group();
 
@@ -58,7 +59,7 @@ public class TetrisApplication extends Application {
 
         gridPane.getColumnConstraints().setAll(columnConstraints);
         gridPane.getRowConstraints().setAll(rowConstraints);
- */
+
 
         BackgroundFill backgroundFill = new BackgroundFill(Color.DARKGREY,CornerRadii.EMPTY,Insets.EMPTY);
         Background labelBackground = new Background(backgroundFill);
@@ -74,14 +75,14 @@ public class TetrisApplication extends Application {
                 label.resize(50,50);
                 label.setBackground(labelBackground);
                 gridPane.add(label,ligne,col);
-                */
+
             }
         }
 
         gridPane.setGridLinesVisible(true);
         gridPane.setAlignment(Pos.CENTER_LEFT);
 
-/*
+
         Label title = new Label();
         title.setBackground(labelBackground);
         title.setAlignment(Pos.TOP_CENTER);
@@ -90,13 +91,16 @@ public class TetrisApplication extends Application {
         
         root.getChildren().add(gridPane);
         root.getChildren().add(title);
-*/
+
 
         Scene scene = new Scene(gridPane,graphicWidth,graphicHeigh, Color.GRAY);
 
         stage.setTitle("TETRIS");
         stage.setScene(scene);
         stage.show();
+*/
 
+        FenetrePrincipale fenetrePrincipale = new FenetrePrincipale();
+        fenetrePrincipale.show();
     }
 }
