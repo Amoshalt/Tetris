@@ -8,7 +8,7 @@ import Tetriminos.Piece;
  */
 public class PlateauTetris {
     private Grille grille;
-    private int Score;
+    private int score;
     private Piece pieceActu;
     private Piece pieceSuiv;
 
@@ -16,5 +16,10 @@ public class PlateauTetris {
         this.grille = grille;
         this.pieceActu = pieceActu;
         this.pieceSuiv = pieceSuiv;
+        this.score = 0;
     }
+
+
+
+
 }

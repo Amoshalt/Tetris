@@ -5,7 +5,7 @@ import GrilleJeux.Grille;
  */
 public class Tetris {
     public static void main(String[] args) {
-        Grille grid = new Grille();
+        Grille grid = new Grille(10,10);
 /*
         affichageConsole(grid);
 */
