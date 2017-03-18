@@ -13,10 +13,14 @@ public class S extends Piece {
     public S(sensPiece sens) {
         super();
         Case[] c = new Case[4];
+        c[0]= new Case(false,0,0);
+        c[1]= new Case(false,0,0);
+        c[2]= new Case(false,0,0);
+        c[3]= new Case(false,0,0);
         int[][] tab = {{0,1}, {1,1}, {1,2}, {2,2},
                 {1,0}, {1,1}, {0,1}, {0,2},
         };
-        for( int i =0; i< 3; i++)
+        for( int i =0; i< 4; i++)
         {
             c[i].setCouleur(Case.Couleur.JAUNE);
             switch (sens)

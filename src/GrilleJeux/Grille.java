@@ -154,4 +154,17 @@ public class Grille {
         System.out.println();
         System.out.println();
     }
+
+
+    public void afficheCase(int x, int y)
+    {
+        if (this.getGrille()[x][y].isVide())
+        {
+            System.out.print(" v ");
+        }
+        else
+        {
+            System.out.print(" p ");
+        }
+    }
 }

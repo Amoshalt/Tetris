@@ -18,7 +18,7 @@ public class T extends Piece {
                 {2,2}, {1,1}, {1,0}, {0,1},
                 {1,0}, {1,1}, {2,1}, {1,2}
         };
-        for( int i =0; i< 3; i++)
+        for( int i =0; i< 4; i++)
         {
             c[i].setCouleur(Case.Couleur.VERT);
             switch (sens)

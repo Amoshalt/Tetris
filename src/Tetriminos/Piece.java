@@ -21,10 +21,11 @@ public class Piece {
 
     public Piece() {
         this.cases = new Case[4];
-        this.cases[0].setVide(false);
-        this.cases[1].setVide(false);
-        this.cases[2].setVide(false);
-        this.cases[3].setVide(false);
+        this.cases[0]= new Case(false,0,0);
+        this.cases[1]= new Case(false,0,0);
+        this.cases[2]= new Case(false,0,0);
+        this.cases[3]= new Case(false,0,0);
+
         this.sens = sensPiece.HAUT;
     }
 
@@ -58,4 +59,6 @@ public class Piece {
                 break;
         }
     }
+
+    
 }

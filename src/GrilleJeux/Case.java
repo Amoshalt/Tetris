@@ -63,4 +63,5 @@ public class Case {
     public void setCouleur(Couleur couleur) {
         this.couleur = couleur;
     }
+
 }

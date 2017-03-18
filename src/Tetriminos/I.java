@@ -16,7 +16,7 @@ public class I extends Piece {
         int[][] tab = {{0,0}, {0,1}, {0,2}, {0,3},
                 {0,0}, {1,0}, {2,0}, {3,0},
         };
-        for( int i =0; i< 3; i++)
+        for( int i =0; i< 4; i++)
         {
             c[i].setCouleur(Case.Couleur.VIOLET);
             switch (sens)
