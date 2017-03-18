@@ -2,25 +2,7 @@ package Main;
 import Fenêtre.*;
 
 import javafx.application.Application;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
-import javafx.geometry.*;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.*;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.*;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 /**
  * Created by Brandon on 14/02/2017.
@@ -100,7 +82,7 @@ public class TetrisApplication extends Application {
         stage.show();
 */
 
-        FenetrePrincipale fenetrePrincipale = new FenetrePrincipale();
+        FenetreTetris fenetrePrincipale = new FenetreTetris();
         fenetrePrincipale.show();
     }
 }

@@ -20,7 +20,7 @@ import java.security.PublicKey;
 /**
  * Created by Brandon on 14/02/2017.
  */
-public class FenetrePrincipale extends Stage {
+public class FenetreTetris extends Stage {
 
     private GridPane gridPane;
     private Group groupeRacine;
@@ -33,7 +33,7 @@ public class FenetrePrincipale extends Stage {
     private final int graphicHeigh = 1000 ;
 
 
-    public FenetrePrincipale(){
+    public FenetreTetris(){
 
         this.setWidth(graphicWidth);
         this.setHeight(graphicHeigh);
