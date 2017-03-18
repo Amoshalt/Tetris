@@ -2,8 +2,7 @@ package Plateau;
 
 import GrilleJeux.Case;
 import GrilleJeux.Grille;
-import Tetriminos.Piece;
-import Tetriminos.S;
+import Tetriminos.*;
 
 /**
  * Created by Martial TARDY on 14/03/2017.
@@ -56,52 +55,55 @@ public class PlateauTetris {
 
     public void deplacementPieceActu()
     {
-        int x,y;
         Piece p = this.getPieceActu();
-        Case[] tabC = new Case[4];
-        Grille g = this.getGrilleTetris();
-        int i = 0;
-        tabC = pieceActu.getCases();
         if (this.collisionBas())
         {
-            System.out.println("il y a collision");
+            /*System.out.println("il y a collision");*/
         }
         if (!this.collisionBas())
         {
-            while (i< tabC.length)
-            {
-
-
-                x = tabC[i].getX();
-                y = tabC[i].getY();
-                System.out.println(" x: " + x + " y: " + y);
-                tabC[i].setX(x+1);
-                tabC[i].setY(y);
-
-                i++;
-            }
+            p.deplacementBas();
         }
         else
         {
-            while (i< tabC.length)
-            {
-
-                System.out.println(" i : "+ i);
-                x = tabC[i].getX();
-                y = tabC[i].getY();
-                System.out.println(" x: " + x + " y: " + y);
-                g.getGrille()[x][y] = tabC[i];
-
-                i++;
-            }
+            encrageSurGrille();
+            changementPieceActu();
 
         }
-
-
-        p.setCases(tabC);
     }
 
-    boolean collisionGauche()
+    public void deplacementDroitPieceActu()
+    {
+        Piece p = this.getPieceActu();
+        if (!this.collisionDroite())
+        {
+            p.deplacementDroite();
+        }
+
+    }
+
+    public void encrageSurGrille()
+    {
+        int x,y;
+        Piece p = this.getPieceActu();
+        Case[] tabC;
+        Grille g = this.getGrilleTetris();
+        int i = 0;
+        tabC = pieceActu.getCases();
+        while (i< tabC.length)
+        {
+
+            //System.out.println(" i : "+ i);
+            x = tabC[i].getX();
+            y = tabC[i].getY();
+            //System.out.println(" x: " + x + " y: " + y);
+            g.getGrille()[x][y] = tabC[i];
+
+            i++;
+        }
+    }
+
+    public boolean collisionGauche()
     {
         boolean collision=false;
         Case[] tabP= pieceActu.getCases();
@@ -109,7 +111,7 @@ public class PlateauTetris {
         int i= 0;
 
         int min = tabP[0].getY();
-        for (int j = 0; j < tabP.length-1; j++)
+        for (int j = 0; j < tabP.length; j++)
         {
             min = Math.min(tabP[j].getY(),min);
         }
@@ -130,29 +132,105 @@ public class PlateauTetris {
     }
 
 
-    boolean collisionBas()
+    public boolean collisionBas()
     {
         boolean collision=false;
         Case[] tabP= pieceActu.getCases();
         Case[][] gril = this.getGrilleTetris().getGrille();
         int i= 0;
+        int Xmax = 0;
+        for (int j = 0; j < tabP.length; j++)
+        {
+            Xmax = Math.max(Xmax,tabP[j].getX());
+        }
+        //System.out.print("max: " + Xmax+ "\n");
+        if (Xmax != gril.length-1)
+        {
             while ( i < 4 && collision == false)
+            {
+
+                int x = tabP[i].getX();
+                int y = tabP[i].getY();
+                //System.out.print(" x : "+ x);
+                //System.out.println(" y : "+ y);
+                if (!gril[x+1][y].isVide() )
+                {
+                    collision = true;
+                }
+                i++;
+            }
+        }
+        else
+        {
+            collision = true;
+        }
+        return collision;
+    }
+
+    public boolean collisionDroite()
+    {
+        boolean collision=false;
+        Case[] tabP= pieceActu.getCases();
+        Case[][] gril = this.getGrilleTetris().getGrille();
+        int i= 0;
+
+        int max = tabP[0].getY();
+        for (int j = 0; j < tabP.length; j++)
+        {
+            max = Math.max(tabP[j].getY(),max);
+        }
+
+        while ( i < 4 && collision == false)
         {
             int x = tabP[i].getX();
             int y = tabP[i].getY();
-            int max = 0;
-            for (int j = 0; j < tabP.length-1; j++)
-            {
-                max = Math.max(tabP[j].getX(),max);
-            }
 
-            if (!gril[x+1][y].isVide() || max==gril.length-1)
+
+            if (max==gril[x].length-1 || !gril[x][y+1].isVide())
             {
                 collision = true;
             }
             i++;
         }
         return collision;
+    }
+
+    public void changementPieceActu()
+    {
+        Piece p = this.getPieceSuiv();
+        Piece newPiece = PieceAleatoire();
+        this.setPieceActu(p);
+        this.setPieceSuiv(newPiece);
+    }
+
+    public Piece PieceAleatoire()
+    {
+        int indice = (int)(Math.random()*7);
+        Piece p;
+
+
+        switch (indice )
+        {
+            case 0: p = new C(Piece.sensPiece.HAUT);
+                break;
+            case 1: p = new S(Piece.sensPiece.HAUT);
+                break;
+            case 2: p = new Si(Piece.sensPiece.HAUT);
+                break;
+            case 3: p = new L(Piece.sensPiece.HAUT);
+                break;
+            case 4: p = new Li(Piece.sensPiece.HAUT);
+                break;
+            case 5: p = new I(Piece.sensPiece.HAUT);
+                break;
+            case 6: p = new T(Piece.sensPiece.HAUT);
+                break;
+
+            default: p = new Piece();
+                break;
+
+        }
+        return p;
     }
 
     public void affichePlateau()

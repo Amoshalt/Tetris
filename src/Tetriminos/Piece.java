@@ -60,5 +60,68 @@ public class Piece {
         }
     }
 
-    
+    public void deplacementBas()
+    {
+        int x,y;
+
+        Case[] tabC = new Case[4];
+        int i = 0;
+        tabC = this.getCases();
+        while (i< tabC.length)
+        {
+
+
+            x = tabC[i].getX();
+            y = tabC[i].getY();
+            /*System.out.println(" x: " + x + " y: " + y);*/
+            tabC[i].setX(x+1);
+            tabC[i].setY(y);
+
+            i++;
+        }
+    }
+
+    public void deplacementDroite()
+    {
+        int x,y;
+
+        Case[] tabC = new Case[4];
+        int i = 0;
+        tabC = this.getCases();
+        while (i< tabC.length)
+        {
+
+
+            x = tabC[i].getX();
+            y = tabC[i].getY();
+            /*System.out.println(" x: " + x + " y: " + y);*/
+            tabC[i].setX(x);
+            tabC[i].setY(y+1);
+
+            i++;
+        }
+        this.setCases(tabC);
+    }
+
+    public void deplacementGauche()
+    {
+        int x,y;
+
+        Case[] tabC = new Case[4];
+        int i = 0;
+        tabC = this.getCases();
+        while (i< tabC.length)
+        {
+
+
+            x = tabC[i].getX();
+            y = tabC[i].getY();
+            /*System.out.println(" x: " + x + " y: " + y);*/
+            tabC[i].setX(x);
+            tabC[i].setY(y-1);
+
+            i++;
+        }
+    }
+
 }

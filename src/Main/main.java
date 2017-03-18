@@ -37,35 +37,30 @@ public class main {
         g.affichageGrilleConsole();
         g.affichageGrilleConsole2();*/
 
-        Piece piece1 = new C(Piece.sensPiece.HAUT);
-        Piece piece2 = new S(Piece.sensPiece.HAUT);
-        PlateauTetris p = new PlateauTetris(g,piece1,piece2);
-        g.getGrille()[9][2].setVide(false);
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
-        p.deplacementPieceActu();
-        p.affichePlateau();
+        PlateauTetris p = new PlateauTetris(g,new Piece(),new Piece());
+        p.setPieceActu(p.PieceAleatoire());
+        p.setPieceSuiv(p.PieceAleatoire());
+        g.getGrille()[9][1].setVide(false);
+        for(int i = 0; i< 70; i++)
+        {
+            if(i%10 == 0)
+            {
+                p.affichePlateau();
+                //System.out.println("\n piece suiv = " + p.getPieceActu().getClass());
+
+            }
+            /*System.out.print(p.getPieceActu().getCases()[0].getX());
+            System.out.println(p.getPieceActu().getCases()[0].getY());
+            System.out.print(p.getPieceActu().getCases()[1].getX());
+            System.out.println(p.getPieceActu().getCases()[1].getY());
+            System.out.print(p.getPieceActu().getCases()[2].getX());
+            System.out.println(p.getPieceActu().getCases()[2].getY());
+            System.out.print(p.getPieceActu().getCases()[3].getX());
+            System.out.println(p.getPieceActu().getCases()[3].getY()+ "\n");*/
+            p.deplacementDroitPieceActu();
+            p.deplacementPieceActu();
+
+        }
 
 
     }

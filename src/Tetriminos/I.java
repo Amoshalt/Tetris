@@ -16,6 +16,10 @@ public class I extends Piece {
         int[][] tab = {{0,0}, {0,1}, {0,2}, {0,3},
                 {0,0}, {1,0}, {2,0}, {3,0},
         };
+        c[0]= new Case(false,0,0);
+        c[1]= new Case(false,0,0);
+        c[2]= new Case(false,0,0);
+        c[3]= new Case(false,0,0);
         for( int i =0; i< 4; i++)
         {
             c[i].setCouleur(Case.Couleur.VIOLET);
