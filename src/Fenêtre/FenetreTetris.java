@@ -1,21 +1,12 @@
 package Fenêtre;
 
-import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
 import javafx.stage.Stage;
-
-import javax.swing.*;
-import java.awt.*;
-import java.security.PublicKey;
 
 /**
  * Created by Brandon on 14/02/2017.
@@ -26,7 +17,7 @@ public class FenetreTetris extends Stage {
     private Group groupeRacine;
     private Scene scene;
 
-    private static int nbLigne = 10 ;
+    private static int nbLignes = 20 ;
     private static int nbCol = 10 ;
 
     private final int graphicWidth = 800 ;
@@ -46,12 +37,12 @@ public class FenetreTetris extends Stage {
         BackgroundFill backgroundFill = new BackgroundFill(javafx.scene.paint.Color.DARKGREY, CornerRadii.EMPTY, Insets.EMPTY);
         Background labelBackground = new Background(backgroundFill);
 
-        for (int ligne = 0 ; ligne < nbLigne ; ligne++ ){
+        for (int ligne = 0; ligne < nbLignes; ligne++ ){
             for ( int col = 0 ; col< nbCol ; col++ ){
 
                 javafx.scene.shape.Rectangle rectangle = new javafx.scene.shape.Rectangle(30  ,30);
                 rectangle.setFill(Color.WHITE);
-                gridPane.add(rectangle,ligne,col);
+                gridPane.add(rectangle,col,ligne);
 
             }
         }
