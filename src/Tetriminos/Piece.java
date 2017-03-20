@@ -95,8 +95,10 @@ public class Piece {
             x = tabC[i].getX();
             y = tabC[i].getY();
             /*System.out.println(" x: " + x + " y: " + y);*/
+
             tabC[i].setX(x);
             tabC[i].setY(y+1);
+
 
             i++;
         }

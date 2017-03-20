@@ -72,12 +72,22 @@ public class PlateauTetris {
         }
     }
 
-    public void deplacementDroitPieceActu()
+    public void deplacementDroitePieceActu()
     {
         Piece p = this.getPieceActu();
         if (!this.collisionDroite())
         {
             p.deplacementDroite();
+        }
+
+    }
+
+    public void deplacementGauchePieceActu()
+    {
+        Piece p = this.getPieceActu();
+        if (!this.collisionGauche())
+        {
+            p.deplacementGauche();
         }
 
     }
@@ -198,8 +208,9 @@ public class PlateauTetris {
     public void changementPieceActu()
     {
         Piece p = this.getPieceSuiv();
-        Piece newPiece = PieceAleatoire();
+        Piece newPiece = new C(Piece.sensPiece.HAUT);
         this.setPieceActu(p);
+        this.centrerPiece();
         this.setPieceSuiv(newPiece);
     }
 
@@ -231,6 +242,17 @@ public class PlateauTetris {
 
         }
         return p;
+    }
+
+    public void centrerPiece()
+    {
+        Piece p = pieceActu;
+        Case[] c = p.getCases();
+        for (int i = 0; i <4; i++)
+        {
+            c[i].setY(c[i].getY() + grilleTetris.getGrille()[0].length/2);
+        }
+        pieceActu.setCases(c);
     }
 
     public void affichePlateau()

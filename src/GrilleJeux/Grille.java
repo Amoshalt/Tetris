@@ -76,7 +76,7 @@ public class Grille {
 
             for (int i = g.length - 1; i >= 0; i--)
             {
-                System.out.println("i: " + i +" nbLigne: " + nbLigne + " numLigne: " + numLigne + " numArray: " + numArray);
+                //System.out.println("i: " + i +" nbLigne: " + nbLigne + " numLigne: " + numLigne + " numArray: " + numArray);
                 if (i != numLigne)
                 {
                     if(nbLigne != 0)
@@ -88,14 +88,14 @@ public class Grille {
                         }
                     }
 
-                    affichageGrilleConsole();
+                    //affichageGrilleConsole();
 
 
                 }
                 else
                 {
 
-                    System.out.println("On a trouvé une ligne pleine");
+                    //System.out.println("On a trouvé une ligne pleine");
                     for (int j =g[i].length - 1 ; j >= 0; j--)
                     {
                         g[i][j].setVide(true);

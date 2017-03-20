@@ -38,13 +38,21 @@ public class main {
         g.affichageGrilleConsole2();*/
 
         PlateauTetris p = new PlateauTetris(g,new Piece(),new Piece());
-        p.setPieceActu(p.PieceAleatoire());
-        p.setPieceSuiv(p.PieceAleatoire());
-        g.getGrille()[9][1].setVide(false);
-        for(int i = 0; i< 70; i++)
+        p.setPieceActu(new C(Piece.sensPiece.HAUT));
+        p.setPieceSuiv(new C(Piece.sensPiece.HAUT));
+        int b= 8;
+        //g.getGrille()[9][1].setVide(false);
+        for(int i = 0; i< 71; i++)
         {
             if(i%10 == 0)
             {
+                for (int j = 0; j< b;j++)
+                {
+                    p.deplacementGauchePieceActu();
+                }
+
+                b--;
+                b--;
                 p.affichePlateau();
                 //System.out.println("\n piece suiv = " + p.getPieceActu().getClass());
 
@@ -57,11 +65,19 @@ public class main {
             System.out.println(p.getPieceActu().getCases()[2].getY());
             System.out.print(p.getPieceActu().getCases()[3].getX());
             System.out.println(p.getPieceActu().getCases()[3].getY()+ "\n");*/
-            p.deplacementDroitPieceActu();
+            /*int indice = (int) (Math.random()*100);
+            if(indice%2 == 0)
+                p.deplacementDroitePieceActu();
+            else
+                p.deplacementGauchePieceActu();
+            */
+
             p.deplacementPieceActu();
 
-        }
 
+        }
+        p.getGrilleTetris().suppLignes();
+        p.affichePlateau();
 
     }
 
