@@ -18,6 +18,8 @@ public class MenuController {
 
     public MenuController(FenetreMenu fenetreMenu){
         this.fenetreMenu = fenetreMenu;
+
+
         toTetris = fenetreMenu.getBtnTetris();
         toTetris.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
