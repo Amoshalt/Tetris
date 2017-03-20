@@ -22,7 +22,4 @@ public class TetrisApplication extends Application {
         MenuController menuController = new MenuController(fenetreMenu);
 
     }
-
-
-
 }
