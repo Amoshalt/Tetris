@@ -80,5 +80,7 @@ public class FenetreTetris extends Stage {
         this.show();
     }
 
-
+    public GridPane getGridPane() {
+        return gridPane;
+    }
 }
