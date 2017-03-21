@@ -93,6 +93,36 @@ public class main {
                 break;
 
         }*/
+
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();        p.deplacementPieceActu();
+
+
+
+        p.setIdPieceActu(p.getIdPieceActu()+1);
+        p.setIdPieceActu(p.getIdPieceActu()+1);
+
         p.getGrilleTetris().suppLignes();
         p.affichePlateau();
 
