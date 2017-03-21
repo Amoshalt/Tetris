@@ -46,7 +46,7 @@ public class main {
         {
             p.deplacementGauchePieceActu();
         }
-        
+
         //g.getGrille()[9][1].setVide(false);
         /*for(int i = 0; i< 71; i++)
         {
