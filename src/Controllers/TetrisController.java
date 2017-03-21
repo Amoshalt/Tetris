@@ -12,10 +12,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * Created by Brandon on 14/03/2017.
  */
-public class TetrisController {
+public class TetrisController implements Observer{
 
     private FenetreTetris fenetreTetris;
     EventHandler<KeyEvent> listener;
@@ -23,6 +26,7 @@ public class TetrisController {
 
     private PlateauTetris modelTetris;
     private Case[][] grilleTetris;
+
 
     public TetrisController(FenetreTetris fenetreTetris, PlateauTetris plateauTetris){
         this.fenetreTetris = fenetreTetris;
@@ -41,12 +45,16 @@ public class TetrisController {
                 if(event.getCode().equals(KeyCode.DOWN)){
                     descendre();
                 }
+                if (event.getCode().equals(KeyCode.SPACE)){
+                    tourner();
+                }
             }
         };
 
     }
 
-    public void update(){
+    @Override
+    public void update(Observable o, Object arg) {
         grilleTetris = modelTetris.getGrillePartielle();
 
         int lignes = grilleTetris.length;
@@ -74,37 +82,32 @@ public class TetrisController {
                         default:rectangle.setFill(Color.WHITE);break;
                     }
                 }
-
             }
         }
-
-
-
     }
 
     public void bougerDroite(){
-        boolean possible = checkPossible("droite");
-        if (possible){
-
+        if (!modelTetris.collisionDroite()) {
+            modelTetris.deplacementDroitePieceActu();
         }
     }
 
     public void bougerGauche(){
-        boolean possible = checkPossible("gauche");
-        if (possible){
-
+        if(!modelTetris.collisionGauche()){
+            modelTetris.deplacementGauchePieceActu();
         }
     }
 
     public void descendre(){
-        boolean possible = checkPossible("bas");
-        if (possible){
-
+        if (!modelTetris.collisionBas()){
+            modelTetris.deplacementPieceActu();
         }
     }
 
-    public boolean checkPossible(String direction){
-        return true;
+    public void tourner(){
+        /*
+        if (!modelTetris.collisionRotation());
+        */
     }
 
 }

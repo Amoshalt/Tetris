@@ -18,8 +18,6 @@ public class TetrisApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-
-
         FenetreMenu fenetreMenu = new FenetreMenu();
         MenuController menuController = new MenuController(fenetreMenu);
 
