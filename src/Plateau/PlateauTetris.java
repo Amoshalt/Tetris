@@ -3,18 +3,22 @@ package Plateau;
 import GrilleJeux.Case;
 import GrilleJeux.Grille;
 import Tetriminos.*;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 /**
  * Created by Martial TARDY on 14/03/2017.
  */
-public class PlateauTetris {
+public class PlateauTetris implements Runnable{
     private Grille grilleTetris;
     private int score;
     private Piece[] pieceActu;
     private Piece[] pieceSuiv;
-    int idPieceActu;
-    int idPieceSuiv;
-
+    private int idPieceActu;
+    private int idPieceSuiv;
+    public Timeline timeline;
 
     public PlateauTetris(Grille grilleTetris, Piece[] pieceActu, Piece[] pieceSuiv) {
         this.grilleTetris = grilleTetris;
@@ -71,6 +75,14 @@ public class PlateauTetris {
 
     public void setIdPieceSuiv(int idPieceSuiv) {
         this.idPieceSuiv = idPieceSuiv;
+    }
+
+    public Timeline getTimeline() {
+        return timeline;
+    }
+
+    public void setTimeline(Timeline timeline) {
+        this.timeline = timeline;
     }
 
     public void deplacementPieceActu()
@@ -376,5 +388,20 @@ public class PlateauTetris {
         System.out.println();
 
         //System.out.println(this.getPieceActu().getCases()[2].getX() + " " + this.getPieceActu().getCases()[2].getY());
+    }
+
+    @Override
+    public void run()
+    {
+        timeline = new Timeline(new KeyFrame(Duration.millis(1000 - 100 ), ae -> assemblage()));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    public void assemblage()
+    {
+        this.deplacementPieceActu();
+
+        notify();
     }
 }
