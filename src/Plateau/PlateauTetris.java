@@ -232,6 +232,42 @@ public class PlateauTetris {
         return collision;
     }
 
+    public boolean collisionRotation(int idPieceRotation)
+    {
+        boolean collision = false;
+        int j = 0;
+        Case[][] g = this.getGrilleTetris().getGrille();
+
+        while (!collision && j<4 )
+        {
+            int x = this.getPieceActu()[idPieceRotation].getCases()[j].getX();
+            int y = this.getPieceActu()[idPieceRotation].getCases()[j].getY();
+
+
+            if(!g[x][y].isVide())
+            {
+                collision = true;
+            }
+            j++;
+        }
+
+
+        return collision;
+    }
+
+    Case[][]getGrillePartielle()
+    {
+        Case[][] grille = this.getGrilleTetris().getGrille();
+        for (int i = 0; i< 4; i++)
+        {
+            int x = this.getPieceActu()[this.getIdPieceActu()].getCases()[i].getX();
+            int y = this.getPieceActu()[this.getIdPieceActu()].getCases()[i].getY();
+
+            grille[x][y] = this.getPieceActu()[idPieceActu].getCases()[i];
+        }
+        return grille;
+    }
+
     public void changementPieceActu()
     {
         Piece[] p = this.getPieceSuiv();
@@ -316,6 +352,8 @@ public class PlateauTetris {
             pieceActu[j].setCases(c[j]);
         }
     }
+
+
 
     public void affichePlateau()
     {
