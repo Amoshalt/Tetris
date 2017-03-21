@@ -255,7 +255,7 @@ public class PlateauTetris {
         return collision;
     }
 
-    Case[][]getGrillePartielle()
+    public Case[][]getGrillePartielle()
     {
         Case[][] grille = this.getGrilleTetris().getGrille();
         for (int i = 0; i< 4; i++)
