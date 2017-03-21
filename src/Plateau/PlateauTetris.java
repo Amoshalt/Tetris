@@ -10,16 +10,20 @@ import Tetriminos.*;
 public class PlateauTetris {
     private Grille grilleTetris;
     private int score;
-    private Piece pieceActu;
-    private Piece pieceSuiv;
+    private Piece[] pieceActu;
+    private Piece[] pieceSuiv;
+    int idPieceActu;
+    int idPieceSuiv;
 
-    public PlateauTetris(Grille grille, Piece pieceActu, Piece pieceSuiv) {
-        this.grilleTetris = grille;
+
+    public PlateauTetris(Grille grilleTetris, Piece[] pieceActu, Piece[] pieceSuiv) {
+        this.grilleTetris = grilleTetris;
+        this.score = score;
         this.pieceActu = pieceActu;
         this.pieceSuiv = pieceSuiv;
-        this.score = 0;
+        idPieceActu = 0;
+        idPieceSuiv = 0;
     }
-
 
     public Grille getGrilleTetris() {
         return grilleTetris;
@@ -37,32 +41,49 @@ public class PlateauTetris {
         this.score = score;
     }
 
-    public Piece getPieceActu() {
+    public Piece[] getPieceActu() {
         return pieceActu;
     }
 
-    public void setPieceActu(Piece pieceActu) {
+    public void setPieceActu(Piece[] pieceActu) {
         this.pieceActu = pieceActu;
     }
 
-    public Piece getPieceSuiv() {
+    public Piece[] getPieceSuiv() {
         return pieceSuiv;
     }
 
-    public void setPieceSuiv(Piece pieceSuiv) {
+    public void setPieceSuiv(Piece[] pieceSuiv) {
         this.pieceSuiv = pieceSuiv;
+    }
+
+    public int getIdPieceActu() {
+        return idPieceActu;
+    }
+
+    public void setIdPieceActu(int idPieceActu) {
+        this.idPieceActu = idPieceActu;
+    }
+
+    public int getIdPieceSuiv() {
+        return idPieceSuiv;
+    }
+
+    public void setIdPieceSuiv(int idPieceSuiv) {
+        this.idPieceSuiv = idPieceSuiv;
     }
 
     public void deplacementPieceActu()
     {
-        Piece p = this.getPieceActu();
+        Piece[] p = this.getPieceActu();
         if (this.collisionBas())
         {
             /*System.out.println("il y a collision");*/
         }
-        if (!this.collisionBas())
-        {
-            p.deplacementBas();
+        if (!this.collisionBas()) {
+            for (int i = 0; i < 4; i++) {
+                p[i].deplacementBas();
+            }
         }
         else
         {
@@ -74,20 +95,26 @@ public class PlateauTetris {
 
     public void deplacementDroitePieceActu()
     {
-        Piece p = this.getPieceActu();
+        Piece[] p = this.getPieceActu();
         if (!this.collisionDroite())
         {
-            p.deplacementDroite();
+            for (int i = 0; i < 4; i++)
+                {
+                    p[i].deplacementDroite();
+                }
         }
 
     }
 
     public void deplacementGauchePieceActu()
     {
-        Piece p = this.getPieceActu();
+        Piece[] p = this.getPieceActu();
         if (!this.collisionGauche())
         {
-            p.deplacementGauche();
+            for (int i = 0; i < 4; i++)
+            {
+                p[i].deplacementGauche();
+            }
         }
 
     }
@@ -95,11 +122,11 @@ public class PlateauTetris {
     public void encrageSurGrille()
     {
         int x,y;
-        Piece p = this.getPieceActu();
+        Piece[] p = this.getPieceActu();
         Case[] tabC;
         Grille g = this.getGrilleTetris();
         int i = 0;
-        tabC = pieceActu.getCases();
+        tabC = pieceActu[idPieceActu].getCases();
         while (i< tabC.length)
         {
 
@@ -116,7 +143,7 @@ public class PlateauTetris {
     public boolean collisionGauche()
     {
         boolean collision=false;
-        Case[] tabP= pieceActu.getCases();
+        Case[] tabP= pieceActu[idPieceActu].getCases();
         Case[][] gril = this.getGrilleTetris().getGrille();
         int i= 0;
 
@@ -145,7 +172,7 @@ public class PlateauTetris {
     public boolean collisionBas()
     {
         boolean collision=false;
-        Case[] tabP= pieceActu.getCases();
+        Case[] tabP= pieceActu[idPieceActu].getCases();
         Case[][] gril = this.getGrilleTetris().getGrille();
         int i= 0;
         int Xmax = 0;
@@ -180,7 +207,7 @@ public class PlateauTetris {
     public boolean collisionDroite()
     {
         boolean collision=false;
-        Case[] tabP= pieceActu.getCases();
+        Case[] tabP= pieceActu[idPieceActu].getCases();
         Case[][] gril = this.getGrilleTetris().getGrille();
         int i= 0;
 
@@ -207,37 +234,62 @@ public class PlateauTetris {
 
     public void changementPieceActu()
     {
-        Piece p = this.getPieceSuiv();
-        Piece newPiece = new C(Piece.sensPiece.HAUT);
+        Piece[] p = this.getPieceSuiv();
+        Piece[] newPiece = new Piece[4];
+        newPiece = PieceAleatoire();
         this.setPieceActu(p);
         this.centrerPiece();
         this.setPieceSuiv(newPiece);
     }
 
-    public Piece PieceAleatoire()
+    public Piece[] PieceAleatoire()
     {
         int indice = (int)(Math.random()*7);
-        Piece p;
+        Piece[] p = new Piece[4];
 
 
         switch (indice )
         {
-            case 0: p = new C(Piece.sensPiece.HAUT);
+            case 0: p[0] = new C(Piece.sensPiece.HAUT);
+                p[1] = new C(Piece.sensPiece.BAS);
+                p[2] = new C(Piece.sensPiece.GAUCHE);
+                p[3] = new C(Piece.sensPiece.DROITE);
                 break;
-            case 1: p = new S(Piece.sensPiece.HAUT);
+            case 1: p[0] = new S(Piece.sensPiece.HAUT);
+                p[1] = new S(Piece.sensPiece.BAS);
+                p[2] = new S(Piece.sensPiece.GAUCHE);
+                p[3] = new S(Piece.sensPiece.DROITE);
                 break;
-            case 2: p = new Si(Piece.sensPiece.HAUT);
+            case 2: p[0] = new Si(Piece.sensPiece.HAUT);
+                p[1] = new Si(Piece.sensPiece.BAS);
+                p[2] = new Si(Piece.sensPiece.GAUCHE);
+                p[3] = new Si(Piece.sensPiece.DROITE);
                 break;
-            case 3: p = new L(Piece.sensPiece.HAUT);
+            case 3: p[0] = new L(Piece.sensPiece.HAUT);
+                p[1] = new L(Piece.sensPiece.BAS);
+                p[2] = new L(Piece.sensPiece.GAUCHE);
+                p[3] = new L(Piece.sensPiece.DROITE);
                 break;
-            case 4: p = new Li(Piece.sensPiece.HAUT);
+            case 4: p[0] = new Li(Piece.sensPiece.HAUT);
+                p[1] = new Li(Piece.sensPiece.BAS);
+                p[2] = new Li(Piece.sensPiece.GAUCHE);
+                p[3] = new Li(Piece.sensPiece.DROITE);
                 break;
-            case 5: p = new I(Piece.sensPiece.HAUT);
+            case 5: p[0] = new I(Piece.sensPiece.HAUT);
+                p[1] = new I(Piece.sensPiece.BAS);
+                p[2] = new I(Piece.sensPiece.GAUCHE);
+                p[3] = new I(Piece.sensPiece.DROITE);
                 break;
-            case 6: p = new T(Piece.sensPiece.HAUT);
+            case 6: p[0] = new T(Piece.sensPiece.HAUT);
+                p[1] = new T(Piece.sensPiece.BAS);
+                p[2] = new T(Piece.sensPiece.GAUCHE);
+                p[3] = new T(Piece.sensPiece.DROITE);
                 break;
 
-            default: p = new Piece();
+            default: p[0] = new Piece();
+                p[1] = new Piece();
+                p[2] = new Piece();
+                p[3] = new Piece();
                 break;
 
         }
@@ -246,13 +298,23 @@ public class PlateauTetris {
 
     public void centrerPiece()
     {
-        Piece p = pieceActu;
-        Case[] c = p.getCases();
-        for (int i = 0; i <4; i++)
+        Piece[] p = pieceActu;
+        Case[][] c = new Case[4][4];
+        c[0] = p[0].getCases();
+        c[1] = p[1].getCases();
+        c[2] = p[2].getCases();
+        c[3] = p[3].getCases();
+        for (int j = 0; j< 4 ; j++)
         {
-            c[i].setY(c[i].getY() + grilleTetris.getGrille()[0].length/2);
+            for (int i = 0; i <4; i++)
+            {
+                c[j][i].setY(c[j][i].getY() + grilleTetris.getGrille()[0].length/2);
+            }
         }
-        pieceActu.setCases(c);
+        for (int j = 0; j< 4 ; j++)
+        {
+            pieceActu[j].setCases(c[j]);
+        }
     }
 
     public void affichePlateau()

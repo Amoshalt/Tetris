@@ -37,12 +37,18 @@ public class main {
         g.affichageGrilleConsole();
         g.affichageGrilleConsole2();*/
 
-        PlateauTetris p = new PlateauTetris(g,new Piece(),new Piece());
-        p.setPieceActu(new C(Piece.sensPiece.HAUT));
-        p.setPieceSuiv(new C(Piece.sensPiece.HAUT));
+        PlateauTetris p = new PlateauTetris(g,new Piece[4],new Piece[4]);
+        p.setPieceActu(p.PieceAleatoire());
+        p.setPieceSuiv(p.PieceAleatoire());
         int b= 8;
+
+        for (int j = 0; j< b;j++)
+        {
+            p.deplacementGauchePieceActu();
+        }
+        
         //g.getGrille()[9][1].setVide(false);
-        for(int i = 0; i< 71; i++)
+        /*for(int i = 0; i< 71; i++)
         {
             if(i%10 == 0)
             {
@@ -70,12 +76,23 @@ public class main {
                 p.deplacementDroitePieceActu();
             else
                 p.deplacementGauchePieceActu();
-            */
+
 
             p.deplacementPieceActu();
 
 
-        }
+        }*/
+        /*
+        switch (e.getKeyCode())
+        {
+            case KeyEvent.VK_A :
+                if(e.isControlDown())
+                    System.out.println("A and Ctrl are pressed.");
+                else
+                    System.out.println("Only A is pressed");
+                break;
+
+        }*/
         p.getGrilleTetris().suppLignes();
         p.affichePlateau();
 
