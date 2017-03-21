@@ -35,15 +35,28 @@ public class TetrisController {
     }
 
     public void bougerDroite(){
+        boolean possible = checkPossible("droite");
+        if (possible){
 
+        }
     }
 
     public void bougerGauche(){
+        boolean possible = checkPossible("gauche");
+        if (possible){
 
+        }
     }
 
     public void descendre(){
+        boolean possible = checkPossible("bas");
+        if (possible){
 
+        }
+    }
+
+    public boolean checkPossible(String direction){
+        return true;
     }
 
 }
