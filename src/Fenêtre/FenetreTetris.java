@@ -29,8 +29,8 @@ public class FenetreTetris extends Stage {
     private static int nbLignes = 20 ;
     private static int nbCol = 10 ;
 
-    private final int graphicWidth = 800 ;
-    private final int graphicHeigh = 1000 ;
+    private final int graphicWidth = 600 ;
+    private final int graphicHeigh = 850 ;
 
 
     public FenetreTetris(){
