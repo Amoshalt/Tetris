@@ -14,7 +14,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        Grille g = new Grille(10,10);
+            //Grille g = new Grille(10,10);
 /*
         g.affichageGrilleConsole();
         for (int j = 0; j < g.getGrille()[1].length; j++)
@@ -37,9 +37,8 @@ public class main {
         g.affichageGrilleConsole();
         g.affichageGrilleConsole2();*/
 
-        PlateauTetris p = new PlateauTetris(g,new Piece[4],new Piece[4]);
-        p.setPieceActu(p.PieceAleatoire());
-        p.setPieceSuiv(p.PieceAleatoire());
+        PlateauTetris p = new PlateauTetris();
+        p.centrerPiece();
         int b= 8;
 
         for (int j = 0; j< b;j++)
@@ -111,14 +110,14 @@ public class main {
         p.deplacementPieceActu();
         p.deplacementPieceActu();
         p.deplacementPieceActu();
-        p.deplacementPieceActu();        p.deplacementPieceActu();
         p.deplacementPieceActu();
         p.deplacementPieceActu();
         p.deplacementPieceActu();
         p.deplacementPieceActu();
-        p.deplacementPieceActu();        p.deplacementPieceActu();
-
-
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
+        p.deplacementPieceActu();
 
         p.setIdPieceActu(p.getIdPieceActu()+1);
         p.setIdPieceActu(p.getIdPieceActu()+1);

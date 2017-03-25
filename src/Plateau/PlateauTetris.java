@@ -20,11 +20,11 @@ public class PlateauTetris implements Runnable{
     private int idPieceSuiv;
     public Timeline timeline;
 
-    public PlateauTetris(Grille grilleTetris, Piece[] pieceActu, Piece[] pieceSuiv) {
-        this.grilleTetris = grilleTetris;
-        this.score = score;
-        this.pieceActu = pieceActu;
-        this.pieceSuiv = pieceSuiv;
+    public PlateauTetris() {
+        this.grilleTetris = new Grille(20,10);
+        this.score = 0;
+        this.pieceActu = PieceAleatoire();
+        this.pieceSuiv = PieceAleatoire();
         idPieceActu = 0;
         idPieceSuiv = 0;
     }
@@ -365,7 +365,28 @@ public class PlateauTetris implements Runnable{
         }
     }
 
+    public void rotationPieceActuDroite()
+    {
+        if ( !collisionRotation((this.getIdPieceActu() +1 ) %4) ) {
+            for (int i = 0; i < this.getPieceActu().length; i++) {
+                this.getPieceActu()[i].deplacementDroite();
+            }
 
+            this.setIdPieceActu((getIdPieceActu() + 1) % 4);
+        }
+    }
+
+    public void rotationPieceActuGauche()
+    {
+        if ( !collisionRotation((this.getIdPieceActu() -1 ) %4) )
+        {
+            for (int i = 0; i < this.getPieceActu().length; i++)
+            {
+                this.getPieceActu()[i].deplacementGauche();
+            }
+            this.setIdPieceActu(( getIdPieceActu() - 1 ) % 4);
+        }
+    }
 
     public void affichePlateau()
     {

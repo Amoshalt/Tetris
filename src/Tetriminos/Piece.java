@@ -60,6 +60,21 @@ public class Piece {
         }
     }
 
+    public void rotationGauche()
+    {
+        switch (this.getSens())
+        {
+            case BAS: this.setSens(sensPiece.DROITE);
+                break;
+            case DROITE: this.setSens(sensPiece.HAUT);
+                break;
+            case GAUCHE: this.setSens(sensPiece.BAS);
+                break;
+            case HAUT: this.setSens(sensPiece.GAUCHE);
+                break;
+        }
+    }
+
     public void deplacementBas()
     {
         int x,y;
