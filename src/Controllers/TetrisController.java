@@ -27,6 +27,9 @@ public class TetrisController implements Observer{
     private PlateauTetris modelTetris;
     private Case[][] grilleTetris;
 
+    private int lignes;
+    private int colones;
+
 
     public TetrisController(FenetreTetris fenetreTetris, PlateauTetris plateauTetris){
         this.fenetreTetris = fenetreTetris;
@@ -51,14 +54,14 @@ public class TetrisController implements Observer{
             }
         };
 
+        this.grilleTetris = modelTetris.getGrillePartielle();
+        this.lignes = grilleTetris.length;
+        this.colones = grilleTetris[0].length;
+
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        grilleTetris = modelTetris.getGrillePartielle();
-
-        int lignes = grilleTetris.length;
-        int colones = grilleTetris[1].length;
 
         ObservableList<Node> listeRectangles = grilleVue.getChildren();
 

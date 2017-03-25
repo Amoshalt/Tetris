@@ -6,12 +6,15 @@ import Tetriminos.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.Observable;
 import javafx.util.Duration;
+
+import java.util.Observer;
 
 /**
  * Created by Martial TARDY on 14/03/2017.
  */
-public class PlateauTetris implements Runnable{
+public class PlateauTetris extends java.util.Observable implements Runnable {
     private Grille grilleTetris;
     private int score;
     private Piece[] pieceActu;
@@ -423,6 +426,7 @@ public class PlateauTetris implements Runnable{
     {
         this.deplacementPieceActu();
 
-        notify();
+        setChanged();
+        notifyObservers();
     }
 }

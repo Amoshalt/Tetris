@@ -2,6 +2,9 @@ package Controllers;
 
 import Fenêtre.FenetreMenu;
 import Fenêtre.FenetreTetris;
+import Fenêtre.TEST;
+import GrilleJeux.Grille;
+import Plateau.PlateauTetris;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +17,8 @@ public class MenuController {
     FenetreMenu fenetreMenu;
     FenetreTetris fenetreTetris;
     Button toTetris;
+
+    TetrisController tetrisController;
 
 
     public MenuController(FenetreMenu fenetreMenu){
@@ -30,7 +35,11 @@ public class MenuController {
     }
 
     public void tetrisButtonClick(){
-        fenetreTetris = new FenetreTetris();
+        //fenetreTetris = new FenetreTetris();
+        // tetrisController = new TetrisController(fenetreTetris,new PlateauTetris(new Grille(10,20),));
+
+        TEST test = new TEST();
+
         fenetreMenu.close();
     }
 
